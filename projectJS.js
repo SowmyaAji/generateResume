@@ -54,14 +54,21 @@ function createResume() {
     document.getElementById("email").focus();
   }
   const career = document.getElementById("careerObj").value;
-
+  const personal = document.getElementById("peronalInfo").value;
+  const education = document.getElementById("education").value;
+  const startDate1 = document.getElementById("startDate1").value;
+  console.log(startDate1);
   let myText =
     "<html>\n<head>\n<title>My Resume</title>\n<link rel='stylesheet' type='text/css' href='project.css' />\n</head>\n<body>\n";
   myText += ("<div>" + fullName + "</div>");
+
   myText += ("<div>" + fullAddress + " / " + phone + "</div>");
-  myText += (`<div> ${validatedEmail} </div>`);
-  myText += (`<hr>`);
-  myText += (`<p><div class='left'> CAREER OBJECTIVES </div><div class='right'>${career}</div></p>`);
+  myText += ("<div>" + validatedEmail +  "</div>");
+  myText += ("<hr>");
+  myText += ("<p><div class='left'> CAREER OBJECTIVES </div><div class='right'>" + career + "</div></p>");
+  myText += ("<p><div class='left'> PERSONAL DATA </div><div class='right'>" + personal + "</div></p>");
+  myText += ("<p><div class='left'> EDUCATION </div><div class='right'>" + education + "</div></p>");
+  myText += ("<p><div class='left'> EMPLOYMENT EXPERIENCE: </div></p>");
   myText += "</body>\n</html>";
   console.log(myText);
 
