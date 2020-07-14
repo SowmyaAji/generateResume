@@ -1,0 +1,16 @@
+.left {
+   
+    width: 30%;
+    font-family: monospace;
+}
+
+.right {
+   
+    width: 65%;
+    float: right;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    display: block; 
+    font-family: monospace;
+} 
+

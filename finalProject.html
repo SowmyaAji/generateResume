@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB 115 Final Project</title>
+</head>
+<body>
+    
+  <script src="projectJS.js"></script> 
+    
+  <h1 id="child" style="text-align: center;">Build Your Resume</h1>
+  <form action="" name="resumeForm" style="font-family:monospace; margin-left: 2rem;">
+      <p>
+        <label for="fullName">Enter your full name:</label><br>
+        <input type="text" name="fullName"  id="fullName" size="70"/> 
+      </p>
+      <p>
+          <label for="fullAddress">Enter your full address: </label><br>
+          <input type="text" name="fullAddress" id="fullAddress" size="70" >
+      </p>
+      <p>
+      <label for="telePhone">Enter your phone number: </label><br>
+      <input type="tel" name="telePhone" id="telePhone" size="70" />
+      </p>
+      <p>
+        <label for="email">Enter your email: </label><br>
+        <input type="text" name="email" id="email" size="70" required> 
+      </p>
+      <p>
+          <label for="personalInfo">Enter your personal information: </label><br>
+          <textarea name="personalInfo" id="peronalInfo" cols="72" rows="10" spellcheck="true"></textarea>
+      </p>
+      <p>
+          <label for="careerObj">Enter your career objectives: </label><br>
+          <textarea name="careerObj" id="careerObj" cols="72" rows="10" spellcheck="true"></textarea>
+      </p>
+      <p>
+        <label for="education">Enter your educational background: </label><br>
+        <textarea name="education" id="education" cols="72" rows="10" spellcheck="true"></textarea>
+    </p>
+    <p>
+        <label for="startDate1">Enter the start date for your most recent employment: </label><br>
+        <input type="date" name="startDate1">
+    </p>
+    <p>
+        <label for="endDate1">Enter the end date for your most recent employment: </label><br>
+        <input type="date" name="endDate1">
+    </p>
+    <p>
+        <label for="employment1">Enter your employment experience: </label><br>
+        <textarea name="employment1" id="employment1" cols="72" rows="10" spellcheck="true"></textarea>
+    </p>
+    <p>
+        <label for="startDate2">Enter the start date for previous employment: </label><br>
+        <input type="date" name="startDate2">
+    </p>
+    <p>
+        <label for="endDate2">Enter the end date for previous employment: </label><br>
+        <input type="date" name="endDate2">
+    </p>
+    <p>
+        <label for="employment2">Enter your employment experience: </label><br>
+        <textarea name="employment2" id="employment2" cols="72" rows="10" spellcheck="true"></textarea>
+    </p>
+    <p>
+        <label for="startDate3">Enter the start date for previous employment: </label><br>
+        <input type="date" name="startDate3">
+    </p>
+    <p>
+        <label for="endDate3">Enter the end date for your previous employment: </label><br>
+        <input type="date" name="endDate3">
+    </p>
+    <p>
+        <label for="employment3">Enter your employment experience: </label><br>
+        <textarea name="employment3" id="employment3" cols="72" rows="10" spellcheck="true"></textarea>
+    </p>
+    <p>
+        <label for="startDate4">Enter the start date for previous employment: </label><br>
+        <input type="date" name="startDate4">
+    </p>
+    <p>
+        <label for="endDate4">Enter the end date for your previous employment: </label><br>
+        <input type="date" name="endDate4">
+    </p>
+    <p>
+        <label for="employment4">Enter your employment experience: </label><br>
+        <textarea name="employment4" id="employment4" cols="72" rows="10" spellcheck="true"></textarea>
+    </p>
+    <p>
+        <label for="references">Enter your character references and their contact details: </label><br>
+        <textarea name="references" id="references" cols="72" rows="1">Upon request.
+        </textarea>
+    </p>
+    <p>
+        <label for="bizReferences">Enter your character references and their contact details: </label><br>
+        <textarea name="bizReferences" id="bizReferences" cols="72" rows="10">Upon request.
+        </textarea>
+    </p>
+    <p>
+        
+        <input type="button" value="Create Resume" name="create" id="create" onclick="createResume()"/>
+    </p>
+  </form>
+   
+</body>
+</html>
