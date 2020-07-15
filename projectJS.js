@@ -1,38 +1,22 @@
-// create html element
-const container = document.documentElement;
-console.log(container);
-// create head element
-const headElement = container.firstChild;
-console.log(headElement);
-// create body element (check for whitespace rows)
-let bodyElement;
-if (headElement.nodeType == 1) {
-  bodyElement = headElement.nextSibling.nextSibling;
-} else {
-  bodyElement = headElement.nextSibling;
-}
+// create header and kicker elements, add attributes and text and prepend them to body
+function generateHeader() {
+    const heading = document.createElement("h1");
+    heading.style.color = "red";
+    heading.style.fontFamily = "Tahoma";
+    heading.style.textAlign = "center";
+    const headingText = document.createTextNode("Sowmya Aji");
+    heading.appendChild(headingText);
+    const kicker = document.createElement("h2");
+    kicker.style.color = "red";
+    kicker.style.fontFamily = "Garamond";
+    kicker.style.textAlign = "center";
+    kicker.style.fontStyle = "italic";
+    let kickerText = document.createTextNode("WEB 115 - 001");
+    kicker.appendChild(kickerText);
+    document.body.prepend(heading);
+    document.body.prepend(kicker);
 
-// create heading element, add attributes and text
-const heading = document.createElement("h1");
-heading.style.color = "red";
-heading.style.fontFamily = "Tahoma";
-heading.style.textAlign = "center";
-const headingText = document.createTextNode("Sowmya Aji");
-heading.appendChild(headingText);
-
-// create kicker element, add attributes and text
-const kicker = document.createElement("h2");
-kicker.style.color = "red";
-kicker.style.fontFamily = "Garamond";
-kicker.style.textAlign = "center";
-kicker.style.fontStyle = "italic";
-let kickerText = document.createTextNode("WEB 115 - 001");
-kicker.appendChild(kickerText);
-
-// add both to body
-bodyElement.appendChild(heading);
-bodyElement.appendChild(kicker);
-
+  }
 
 function validateInput(email) {
   const re = /\S+@\S+\.\S+/;
@@ -49,26 +33,11 @@ function validateEmail(email) {
     }
 }
 
-// months in the format we want
-const months = [
-  "Jan.",
-  "Feb.",
-  "Mar.",
-  "Apr.",
-  "May",
-  "June",
-  "July",
-  "Aug.",
-  "Sept.",
-  "Oct.",
-  "Nov.",
-  "Dec.",
-];
 
 // get the year from the date input or return blank
 function getYear(date) {
     if(date == "") {
-        return date="";
+        return date;
     }
     else { 
         let year = date.slice(0, 4);
@@ -86,8 +55,23 @@ function getStartYear(date1, date2) {
 
 // get the month from the date input and return in correct format
 function getMonth(date) {
+  // months in the format we want
+const months = [
+    "Jan.",
+    "Feb.",
+    "Mar.",
+    "Apr.",
+    "May",
+    "June",
+    "July",
+    "Aug.",
+    "Sept.",
+    "Oct.",
+    "Nov.",
+    "Dec.",
+  ];
   if (date == "") {
-      return date = "";
+      return date;
   } 
   else {
     let month = date.slice(5, 7);
@@ -136,6 +120,7 @@ function generateHTML() {
   const career = document.getElementById("careerObj").value;
   const personal = document.getElementById("peronalInfo").value;
   const education = document.getElementById("education").value;
+
   let startDate1 = document.getElementById("startDate1").value;
   let endDate1 = document.getElementById("endDate1").value;
   let employment1 = document.getElementById("employment1").value;
@@ -148,6 +133,7 @@ function generateHTML() {
   let startDate4 = document.getElementById("startDate4").value;
   let endDate4 = document.getElementById("endDate4").value;
   let employment4 = document.getElementById("employment4").value;
+  
   const references = document.getElementById("references").value;
   const bizReferences = document.getElementById("bizReferences").value;
 
