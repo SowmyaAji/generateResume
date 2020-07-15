@@ -2,7 +2,7 @@
     clear:both;
     width:30%;
     float:left;
-    /* font-family: monospace; */
+   
 }
 
 .right {
@@ -11,10 +11,11 @@
     padding-right: 30px;
     padding-bottom: 20px;
     display: block; 
-    /* font-family: monospace; */
+   
 } 
 
 body {
     background-color: lightgoldenrodyellow;
     font-family: monospace;
 }
+
