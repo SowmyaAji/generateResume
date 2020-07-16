@@ -197,4 +197,15 @@ function createResume() {
 }
 
 
+function addListener(obj, type, fn) {
+  // if browser supports event listener
+  if (obj.addEventListener) {
+    obj.addEventListener(type, fn);
+  }
+  // if browser supports attach event (older browsers)
+  else {
+    obj.attachEvent("on"+ type, fn);
+  }
+}
+addListener(document.getElementById("create"), "click", createResume);
 
