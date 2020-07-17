@@ -1,4 +1,5 @@
-// create header and kicker elements, add attributes and text and prepend them to body
+
+// create header and kicker elements, add attributes and text and prepend them to body for input html file
 function generateHeader() {
     const heading = document.createElement("h1");
     heading.style.color = "red";
@@ -17,6 +18,71 @@ function generateHeader() {
     document.body.prepend(kicker);
 
   }
+
+// function employmentDeets() {
+  
+// let emptText ="<p id='empNo'><label for='startDate'>Enter the start date for your most recent employment: </label><br> <input type='date' name= 'startDate' id= 'startDate'></p> <p><label for='endDate'>Enter the end date for your most recent employment: </label><br><input type='date' name='endDate' id='endDate'></p><p><label for='employment'>Enter your employment experience: </label><br><textarea name='employment' id='employment' cols='72' rows='10' spellcheck='true'></textarea></p>";
+
+//   document.getElementById("employmentDeets").innerHTML += emptText;
+// }
+
+function addEmpt() {
+ let empt = document.createElement("div");
+ empt.setAttribute('id', 'empt')
+ console.log(empt);
+ let para = document.createElement("div");
+ let label = document.createElement('label');
+ label.htmlFor = 'startDate';
+ let labelText = document.createTextNode('Enter the start date for employment: ')
+ label.appendChild(labelText);
+ console.log(label);
+ let linebreak = document.createElement('br');
+ label.appendChild(linebreak);
+ let input = document.createElement('input');
+ input.setAttribute('type', 'date');
+ input.setAttribute('name', 'startDate');
+ input.setAttribute('id', 'startDate');
+ label.appendChild(input);
+ para.appendChild(label);
+ console.log(para);
+ empt.appendChild(para);
+ para = document.createElement("p");
+ label = document.createElement('label');
+ label.htmlFor = 'endDate';
+ labelText =   document.createTextNode('Enter the end date for employment: ')
+ label.appendChild(labelText);
+ linebreak = document.createElement('br');
+ label.appendChild(linebreak);
+ input = document.createElement('input');
+ input.setAttribute('type', 'date')
+ input.setAttribute('name', 'endDate');
+ input.setAttribute('id', 'endDate');
+ label.appendChild(input);
+ para.appendChild(label);
+ empt.appendChild(para);
+ para = document.createElement("p");
+ label = document.createElement('label');
+ label.htmlFor = 'employment';
+ labelText =   document.createTextNode('Enter your employment experience: ')
+ label.appendChild(labelText);
+ linebreak = document.createElement('br');
+ label.appendChild(linebreak);
+ let textArea = document.createElement('textarea');
+ textArea.setAttribute('name', 'employment')
+ textArea.setAttribute('cols', '72');
+ textArea.setAttribute('id', 'employment');
+ textArea.setAttribute('rows', '10');
+ label.appendChild(textArea);
+ para.appendChild(label);
+ empt.appendChild(para);
+
+ document.getElementById("employmentDeets").appendChild(empt);
+}
+
+function removeEmpt() {
+  const empt = document.getElementById('empt')
+  document.getElementById("employmentDeets").removeChild(empt);
+}
 
 function validateInput(email) {
   const re = /\S+@\S+\.\S+/;
@@ -207,5 +273,8 @@ function addListener(obj, type, fn) {
     obj.attachEvent("on"+ type, fn);
   }
 }
+
+addListener(document.getElementById("add"), "click", addEmpt);
+addListener(document.getElementById("remove"), "click", removeEmpt);
 addListener(document.getElementById("create"), "click", createResume);
 
