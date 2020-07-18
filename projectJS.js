@@ -19,32 +19,23 @@ function generateHeader() {
 
   }
 
-// function employmentDeets() {
-  
-// let emptText ="<p id='empNo'><label for='startDate'>Enter the start date for your most recent employment: </label><br> <input type='date' name= 'startDate' id= 'startDate'></p> <p><label for='endDate'>Enter the end date for your most recent employment: </label><br><input type='date' name='endDate' id='endDate'></p><p><label for='employment'>Enter your employment experience: </label><br><textarea name='employment' id='employment' cols='72' rows='10' spellcheck='true'></textarea></p>";
-
-//   document.getElementById("employmentDeets").innerHTML += emptText;
-// }
-
+// dynamically add employment
 function addEmpt() {
  let empt = document.createElement("div");
  empt.setAttribute('id', 'empt')
- console.log(empt);
  let para = document.createElement("div");
  let label = document.createElement('label');
  label.htmlFor = 'startDate';
  let labelText = document.createTextNode('Enter the start date for employment: ')
  label.appendChild(labelText);
- console.log(label);
  let linebreak = document.createElement('br');
  label.appendChild(linebreak);
  let input = document.createElement('input');
  input.setAttribute('type', 'date');
  input.setAttribute('name', 'startDate');
- input.setAttribute('id', 'startDate');
+ input.setAttribute('class', 'startDate');
  label.appendChild(input);
  para.appendChild(label);
- console.log(para);
  empt.appendChild(para);
  para = document.createElement("p");
  label = document.createElement('label');
@@ -56,7 +47,7 @@ function addEmpt() {
  input = document.createElement('input');
  input.setAttribute('type', 'date')
  input.setAttribute('name', 'endDate');
- input.setAttribute('id', 'endDate');
+ input.setAttribute('class', 'endDate');
  label.appendChild(input);
  para.appendChild(label);
  empt.appendChild(para);
@@ -70,19 +61,21 @@ function addEmpt() {
  let textArea = document.createElement('textarea');
  textArea.setAttribute('name', 'employment')
  textArea.setAttribute('cols', '72');
- textArea.setAttribute('id', 'employment');
+ textArea.setAttribute('class', 'employment');
  textArea.setAttribute('rows', '10');
  label.appendChild(textArea);
  para.appendChild(label);
  empt.appendChild(para);
-
  document.getElementById("employmentDeets").appendChild(empt);
 }
 
+// remove employment
 function removeEmpt() {
   const empt = document.getElementById('empt')
   document.getElementById("employmentDeets").removeChild(empt);
 }
+
+
 
 function validateInput(email) {
   const re = /\S+@\S+\.\S+/;
@@ -186,20 +179,9 @@ function generateHTML() {
   const career = document.getElementById("careerObj").value;
   const personal = document.getElementById("peronalInfo").value;
   const education = document.getElementById("education").value;
-
-  let startDate1 = document.getElementById("startDate1").value;
-  let endDate1 = document.getElementById("endDate1").value;
-  let employment1 = document.getElementById("employment1").value;
-  let startDate2 = document.getElementById("startDate2").value;
-  let endDate2 = document.getElementById("endDate2").value;
-  let employment2 = document.getElementById("employment2").value;
-  let startDate3 = document.getElementById("startDate3").value;
-  let endDate3 = document.getElementById("endDate3").value;
-  let employment3 = document.getElementById("employment3").value;
-  let startDate4 = document.getElementById("startDate4").value;
-  let endDate4 = document.getElementById("endDate4").value;
-  let employment4 = document.getElementById("employment4").value;
-  
+  const employments = document.getElementById("employmentDeets").childNodes;
+  // convert the child nodelist into an array
+  const empArray = [...employments];
   const references = document.getElementById("references").value;
   const bizReferences = document.getElementById("bizReferences").value;
 
@@ -225,16 +207,17 @@ function generateHTML() {
     education +
     "</div></div><br>";
   myText += "<div><div class='left'> EMPLOYMENT EXPERIENCE: </div></div>";
-  myText += getEmployment(startDate1, endDate1, employment1);
-  if(startDate2) {
-      myText += getEmployment(startDate2, endDate2, employment2);
-  }
-  if(startDate3) {
-    myText += getEmployment(startDate3, endDate3, employment3);
-}
- if(startDate4) {
-    myText += getEmployment(startDate4, endDate4, employment4);
-}
+  if(empArray.length > 0) 
+  { for(let i = 1; i < empArray.length; i++) {
+        let startDate = empArray[i].querySelector('.startDate').value; 
+        console.log(startDate)
+        let endDate = empArray[i].querySelector('.endDate').value;
+        console.log(endDate)
+        let employment = empArray[i].querySelector('.employment').value;
+        console.log(employment)
+        myText += getEmployment(startDate, endDate, employment);
+  }}
+ 
   myText +=
     "<div><div class='left'> CHARACTER REFERENCES </div><div class='right'>" +
     references +
