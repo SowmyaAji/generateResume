@@ -1,22 +1,3 @@
-// create header and kicker elements, add attributes and text and prepend them to body for input html file
-function generateHeader() {
-  const heading = document.createElement("h1");
-  heading.style.color = "red";
-  heading.style.fontFamily = "Tahoma";
-  heading.style.textAlign = "center";
-  const headingText = document.createTextNode("Sowmya Aji");
-  heading.appendChild(headingText);
-  const kicker = document.createElement("h2");
-  kicker.style.color = "red";
-  kicker.style.fontFamily = "Garamond";
-  kicker.style.textAlign = "center";
-  kicker.style.fontStyle = "italic";
-  let kickerText = document.createTextNode("WEB 115 - 001");
-  kicker.appendChild(kickerText);
-  document.body.prepend(heading);
-  document.body.prepend(kicker);
-}
-
 // dynamically add employment
 function addEmpt() {
   let empt = document.createElement("div");
@@ -260,6 +241,7 @@ function generateHTML() {
   const fullAddress = document.getElementById("fullAddress").value;
   const phone = document.getElementById("telePhone").value;
   const email = document.getElementById("email").value;
+  const website = document.getElementById("website").value;
   // get validated email
   const validatedEmail = validateEmail(email);
   const career = document.getElementById("careerObj").value;
@@ -281,6 +263,7 @@ function generateHTML() {
     myText += "<div>" + fullName + "</div>";
     myText += "<div>" + fullAddress + " / " + phone + "</div>";
     myText += "<div>" + validatedEmail + "</div>";
+    myText += "<div>" + website + "</div>";
     myText += "<hr>";
     myText +=
       "<div><div class='left'> CAREER SKILLS </div><div class='right'>" +
